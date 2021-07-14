@@ -9,8 +9,17 @@ import pandas as pd
 
 #how to check the data type
 data = {'First Column Name':  ['First value', 'Second value',...],
-        'Second Column Name': ['First value', 'Second value',...],
+        'Second Column Name': ['First value', 'Second value',...]
         }
 
 df = pd.DataFrame(data, columns = ['First Column Name','Second Column Name',...])
 print(df.dtypes)
+
+#returns a statistical summary
+print(df.describe())
+
+#provides full summary statistics
+print(df.describe(include='all'))
+
+#This function shows the top 30 rows and bottom 30 rows of the data frame.
+print(df.info())
