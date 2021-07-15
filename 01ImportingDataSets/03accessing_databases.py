@@ -19,7 +19,7 @@ from dbmodule import connect
 connection = connect('datanasename', 'username', 'pswd')
 
 #create a cursor object
-cursor() = connection.cursor()
+cursor = connection.cursor()
 
 #run querys
 cursor.execute('select * from mytable')
