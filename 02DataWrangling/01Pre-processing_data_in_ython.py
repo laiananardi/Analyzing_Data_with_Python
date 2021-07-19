@@ -23,9 +23,9 @@ print(df.head(10))
 # Each row of the column represents a sample,
 
 #You access a column by specifying the name of the column.
-print(df("symboling"))
+print(df["symboling"])
 
-# df("body_style")
+print(df["body-style"])
 
 # Each of these columns is a Panda series.
 
@@ -33,7 +33,9 @@ print(df("symboling"))
 # a value to each entry off a column.
 # To add one to each symbolling entry, use this command.
 
-# df("symboling") = df("symboling") + 1
+df["symboling"] = df["symboling"] + 1
+
+print(df["symboling"])
 
 # This changes each value of
 # the Data frame column by adding one to the current value.
