@@ -36,7 +36,8 @@ print(df.head(10))
 # how to replace missing values in python
 
 # will return the average of your data across a specified axis
-mean = df["normalized-losses"].mean()
+mean = df["normalized-losses"].astype("int").mean()
 
-df["normalized-losses"].replace(np.nan, mean)
+# df["normalized-losses"].replace(np.nan, mean)
+
 
