@@ -25,7 +25,9 @@ print(df.head(10))
 # axis = 0 drop the entire row
 # axis = 1 drop the entire colunm
 
-df["price"].replace('?', np.nan, inplace=True)
+#replace ? for a Nan value
+# df.replace('?', np.nan, inplace=True)
+vals = pd.to_numeric(df["normalized-losses"], errors='coerce')
 
 df.dropna(subset=["price"], axis=0, inplace=True)
 print(df.head(10))
@@ -38,7 +40,10 @@ print(df.head(10))
 # how to replace missing values in python
 
 # will return the average of your data across a specified axis
-# mean = df["normalized-losses"].astype("int").mean()
 
-df["normalized-losses"].replace('?', np.nan, inplace=True)
-print(df.head(10))
+# mean = df["normalized-losses"].mean()
+df["normalized-losses"] = vals.fillna(vals.mean()) 
+
+# df["normalized-losses"].replace(np.nan, mean, inplace=True)
+# df["normalized-losses"].fillna(mean, inplace=True)
+print(df["normalized-losses"])

@@ -13,17 +13,25 @@ headers = ["symboling","normalized-losses","make","fuel-type","aspiration", "num
 
 df.columns = headers
 
+#replace ? for a Nan value
+df.replace('?', np.nan, inplace=True)
+df.dropna(subset=["price"], axis=0, inplace=True)
+
 print(df.head(10))
 
+#transforming mpg into l
 df["city-mpg"] = 235/df["city-mpg"]
 
+#rename a column
 df.rename(columns={"city-mpg": "city-l"}, inplace=True)
 
 print(df.head(10))
 
-print(df["price"].tail())
-# df["price"] = df["price"].dtype()
-# print(df["price"])
+#return the last n rows
+print(df["price"].tail(3))
 
-df["price"] = df["price"].astype("int")
-print(df["price"])
+#return the type of the columns
+print(df.dtypes)
+
+df["price"] = df["price"].astype(int)
+print(df["price"])      
