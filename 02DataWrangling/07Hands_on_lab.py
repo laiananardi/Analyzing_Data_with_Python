@@ -64,3 +64,7 @@ print(df.head())
 df['length'] = df['length']/df['length'].max()
 df['width'] = df['width']/df['width'].max()
 
+#binning
+
+# Convert data to correct format:
+df["horsepower"]=df["horsepower"].astype(int, copy=True)
