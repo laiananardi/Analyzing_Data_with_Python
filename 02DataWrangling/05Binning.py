@@ -58,3 +58,16 @@ pyplot.bar(group_names, df["horsepower-binned"].value_counts())
 plt.pyplot.xlabel("horsepower")
 plt.pyplot.ylabel("count")
 plt.pyplot.title("horsepower bins")
+
+
+# Bins Visualization
+
+
+# draw historgram of attribute "horsepower" with bins = 3
+plt.pyplot.hist(df["horsepower"], bins = 3)
+
+# set x/y labels and plot title
+plt.pyplot.xlabel("horsepower")
+plt.pyplot.ylabel("count")
+plt.pyplot.title("horsepower bins")
+
