@@ -10,5 +10,22 @@ headers = ["symboling","normalized-losses","make","fuel-type","aspiration", "num
 
 df.columns = headers
 
+
+dummy_variable_1 = pd.get_dummies(df["fuel-type"])
+dummy_variable_1.head()
+
 print(df["fuel-type"])
-print(pd.get_dummies(df["fuel-type"]))
+print(dummy_variable_1)
+
+
+dummy_variable_1.rename(columns={'gas':'fuel-type-gas', 'diesel':'fuel-type-diesel'}, inplace=True)
+dummy_variable_1.head()
+
+# merge data frame "df" and "dummy_variable_1" 
+df = pd.concat([df, dummy_variable_1], axis=1)
+
+# drop original column "fuel-type" from "df"
+df.drop("fuel-type", axis = 1, inplace=True)
+
+
+df.to_csv('clean_df.csv')
